@@ -1,0 +1,67 @@
+name: Release
+
+# Auto-release on merge to main: computes the next semver tag from the
+# Conventional Commits since the last v* tag (scripts/next-version.sh, rules
+# in RELEASING.md), re-verifies the build, then pushes the tag and publishes
+# a GitHub release. No release when the range has only chore/docs/test/ci/
+# refactor commits.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+# Own group: a newer push's run may replace a pending one, which is harmless
+# -- the next run releases everything since the last tag.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout code (full history + tags)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Compute next version
+        id: version
+        run: |
+          next="$(bash scripts/next-version.sh)"
+          echo "next=$next" >> "$GITHUB_OUTPUT"
+          if [ -z "$next" ]; then
+            echo "No feat/fix/breaking commits since the last tag -- nothing to release."
+          else
+            echo "Next release: $next"
+          fi
+
+      - name: Set up Go
+        if: steps.version.outputs.next != ''
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.27'
+
+      - name: Verify (build, vet, test)
+        if: steps.version.outputs.next != ''
+        run: go build ./... && go vet ./... && go test ./...
+
+      - name: Tag and publish release
+        if: steps.version.outputs.next != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEXT: ${{ steps.version.outputs.next }}
+        run: |
+          if git rev-parse -q --verify "refs/tags/$NEXT" >/dev/null; then
+            echo "Tag $NEXT already exists -- nothing to do."
+            exit 0
+          fi
+          # The release API creates the tag server-side. A `git push` of the
+          # tag is refused whenever the release includes a workflow change
+          # ("refusing to allow a GitHub App to create or update workflow
+          # ... without `workflows` permission"), which GITHUB_TOKEN can't hold.
+          gh release create "$NEXT" --target "$GITHUB_SHA" --title "$NEXT" --generate-notes
