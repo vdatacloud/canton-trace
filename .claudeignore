@@ -1,0 +1,23 @@
+# .claudeignore
+# graphify output: query it with `graphify query`, don't read it raw
+graphify-out/
+.graphify/
+graph.json
+
+# Secrets: never read into context
+.env
+.env.*
+*.token
+
+# Binary and generated files: large and not useful as text
+docs/images/
+/canton-trace
+/bin/
+/dist/
+*.test
+*.out
+coverage.*
+*.coverprofile
+profile.cov
+go.sum
+go.work.sum

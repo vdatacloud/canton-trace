@@ -1,4 +1,32 @@
+# Build output
 /canton-trace
+/bin/
+/dist/
+
+# Go test and coverage artifacts
 *.test
 *.out
+coverage.*
+*.coverprofile
+profile.cov
+
+# Go workspace: never committed (consumers resolve tagged releases)
+go.work
+go.work.sum
+
+# Local secrets: ledger tokens and env files
 .env
+.env.*
+*.token
+
+# graphify's local cache (graphify-out/ itself is committed by CI on main)
+.graphify/
+
+# Claude Code: personal settings stay local
+.claude/settings.local.json
+
+# Editor/OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
