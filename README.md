@@ -25,6 +25,26 @@ Both transports produce identical traces. Values use the JSON Ledger API's
 encoding on both, so a trace read over gRPC equals the same trace read over
 JSON.
 
+## What it looks like
+
+A trace is data: a tree of nodes, each with its kind, template, choice,
+parties, arguments and result. How it is shown is the application's choice.
+Below, a portal renders a release read from a Canton LocalNet. The escrow's
+exercise unlocks a holding through the CIP-56 `Lockable` interface and
+transfers it through `Transferable`, each step creating its new holding. The
+raw JSON beneath it is the trace exactly as this module returns it.
+
+<img src="docs/images/complex-trace-with-raw.gif" alt="A release read as a tree: ExecuteDisbursement, then Unlock via Token.CIP56:Lockable and Transfer via Token.CIP56:Transferable, each creating a holding, with the trace's raw JSON below" width="720">
+
+More views of the same data:
+
+- [The same release, tree only](docs/images/complex-trace.gif)
+- [A simulation](docs/images/simple-trace-with-raw.gif): an action prepared
+  with `PrepareSubmission` and shown before anything is sent, with its
+  traffic estimate and a created contract's data
+
+The parties and ids are LocalNet development data.
+
 ## Install
 
 ```sh
