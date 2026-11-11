@@ -1,0 +1,4 @@
+/canton-trace
+*.test
+*.out
+.env

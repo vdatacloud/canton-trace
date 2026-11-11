@@ -1,0 +1,36 @@
+name: Vulnerabilities
+
+# Fail a PR that brings in a known vulnerability
+# our code reaches, and check main weekly so a newly published advisory
+# surfaces without a push. Same check as `make vuln-check`.
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: read
+
+jobs:
+  govulncheck:
+    name: Go (govulncheck)
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.27'
+
+      # Fails only when our code calls a vulnerable function; a vulnerable
+      # module we require but don't reach is reported, not failed.
+      - name: Run govulncheck
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...
