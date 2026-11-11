@@ -2399,7 +2399,7 @@
       "node_kind": "heading",
       "norm_label": "branch protection strategy",
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L90"
+      "source_location": "L89"
     },
     {
       "id": "gemini_repo_rules_branching_strategy",
@@ -2423,7 +2423,7 @@
       "node_kind": "heading",
       "norm_label": "ci requirements",
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L78"
+      "source_location": "L77"
     },
     {
       "id": "gemini_repo_rules_code_review_requirements",
@@ -2435,7 +2435,7 @@
       "node_kind": "heading",
       "norm_label": "code review requirements",
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L59"
+      "source_location": "L58"
     },
     {
       "id": "gemini_repo_rules_commit_standard",
@@ -2459,7 +2459,7 @@
       "node_kind": "heading",
       "norm_label": "pre-commit verification",
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L65"
+      "source_location": "L64"
     },
     {
       "id": "gemini_repo_rules_pull_request_rules",
@@ -2488,6 +2488,7 @@
     {
       "id": "go_pkg_google_golang_org_grpc_test_bufconn",
       "label": "go_pkg_google_golang_org_grpc_test_bufconn",
+      "_origin": "semantic",
       "community": 0,
       "community_name": "grpc_test.go",
       "external": true,
@@ -2499,6 +2500,7 @@
     {
       "id": "go_pkg_net",
       "label": "go_pkg_net",
+      "_origin": "semantic",
       "community": 0,
       "community_name": "grpc_test.go",
       "external": true,
@@ -2510,6 +2512,7 @@
     {
       "id": "go_pkg_context",
       "label": "go_pkg_context",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2521,6 +2524,7 @@
     {
       "id": "go_pkg_crypto_tls",
       "label": "go_pkg_crypto_tls",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2532,6 +2536,7 @@
     {
       "id": "go_pkg_encoding_json",
       "label": "go_pkg_encoding_json",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2543,6 +2548,7 @@
     {
       "id": "go_pkg_errors",
       "label": "go_pkg_errors",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2554,6 +2560,7 @@
     {
       "id": "go_pkg_flag",
       "label": "go_pkg_flag",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2565,6 +2572,7 @@
     {
       "id": "go_pkg_fmt",
       "label": "go_pkg_fmt",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2576,6 +2584,7 @@
     {
       "id": "go_pkg_google_golang_org_genproto_googleapis_rpc_errdetails",
       "label": "go_pkg_google_golang_org_genproto_googleapis_rpc_errdetails",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2587,6 +2596,7 @@
     {
       "id": "go_pkg_google_golang_org_grpc",
       "label": "go_pkg_google_golang_org_grpc",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2598,6 +2608,7 @@
     {
       "id": "go_pkg_google_golang_org_grpc_codes",
       "label": "go_pkg_google_golang_org_grpc_codes",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2609,6 +2620,7 @@
     {
       "id": "go_pkg_google_golang_org_grpc_credentials",
       "label": "go_pkg_google_golang_org_grpc_credentials",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2620,6 +2632,7 @@
     {
       "id": "go_pkg_google_golang_org_grpc_credentials_insecure",
       "label": "go_pkg_google_golang_org_grpc_credentials_insecure",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2631,6 +2644,7 @@
     {
       "id": "go_pkg_google_golang_org_grpc_status",
       "label": "go_pkg_google_golang_org_grpc_status",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2642,6 +2656,7 @@
     {
       "id": "go_pkg_io",
       "label": "go_pkg_io",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2653,6 +2668,7 @@
     {
       "id": "go_pkg_net_http",
       "label": "go_pkg_net_http",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2664,6 +2680,7 @@
     {
       "id": "go_pkg_net_http_httptest",
       "label": "go_pkg_net_http_httptest",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2675,6 +2692,7 @@
     {
       "id": "go_pkg_os",
       "label": "go_pkg_os",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2686,6 +2704,7 @@
     {
       "id": "go_pkg_reflect",
       "label": "go_pkg_reflect",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2697,6 +2716,7 @@
     {
       "id": "go_pkg_sort",
       "label": "go_pkg_sort",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2708,6 +2728,7 @@
     {
       "id": "go_pkg_strings",
       "label": "go_pkg_strings",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2719,6 +2740,7 @@
     {
       "id": "go_pkg_testing",
       "label": "go_pkg_testing",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "handler_test.go",
       "external": true,
@@ -2730,6 +2752,7 @@
     {
       "id": "go_pkg_time",
       "label": "go_pkg_time",
+      "_origin": "semantic",
       "community": 2,
       "community_name": "Trace",
       "external": true,
@@ -2741,6 +2764,7 @@
     {
       "id": "go_pkg_google_golang_org_protobuf_types_known_emptypb",
       "label": "go_pkg_google_golang_org_protobuf_types_known_emptypb",
+      "_origin": "semantic",
       "community": 3,
       "community_name": "value.go",
       "external": true,
@@ -2752,6 +2776,7 @@
     {
       "id": "go_pkg_bytes",
       "label": "go_pkg_bytes",
+      "_origin": "semantic",
       "community": 4,
       "community_name": "build_test.go",
       "external": true,
@@ -2763,6 +2788,7 @@
     {
       "id": "go_pkg_regexp",
       "label": "go_pkg_regexp",
+      "_origin": "semantic",
       "community": 6,
       "community_name": "Handler",
       "external": true,
@@ -2774,6 +2800,7 @@
     {
       "id": "go_pkg_github_com_digital_asset_dazl_client_v8_go_api_com_daml_ledger_api_v2",
       "label": "go_pkg_github_com_digital_asset_dazl_client_v8_go_api_com_daml_ledger_api_v2",
+      "_origin": "semantic",
       "community": 7,
       "community_name": "grpc.go",
       "external": true,
@@ -2785,6 +2812,7 @@
     {
       "id": "go_pkg_github_com_digital_asset_dazl_client_v8_go_api_com_daml_ledger_api_v2_interactive",
       "label": "go_pkg_github_com_digital_asset_dazl_client_v8_go_api_com_daml_ledger_api_v2_interactive",
+      "_origin": "semantic",
       "community": 7,
       "community_name": "grpc.go",
       "external": true,
@@ -2796,6 +2824,7 @@
     {
       "id": "go_pkg_github_com_digital_asset_dazl_client_v8_go_api_com_daml_ledger_api_v2_interactive_transaction_v1",
       "label": "go_pkg_github_com_digital_asset_dazl_client_v8_go_api_com_daml_ledger_api_v2_interactive_transaction_v1",
+      "_origin": "semantic",
       "community": 7,
       "community_name": "grpc.go",
       "external": true,
@@ -2807,6 +2836,7 @@
     {
       "id": "go_pkg_google_golang_org_grpc_metadata",
       "label": "go_pkg_google_golang_org_grpc_metadata",
+      "_origin": "semantic",
       "community": 7,
       "community_name": "grpc.go",
       "external": true,
@@ -2818,6 +2848,7 @@
     {
       "id": "go_pkg_google_golang_org_protobuf_types_known_timestamppb",
       "label": "go_pkg_google_golang_org_protobuf_types_known_timestamppb",
+      "_origin": "semantic",
       "community": 7,
       "community_name": "grpc.go",
       "external": true,
@@ -2829,6 +2860,7 @@
     {
       "id": "go_pkg_strconv",
       "label": "go_pkg_strconv",
+      "_origin": "semantic",
       "community": 7,
       "community_name": "grpc.go",
       "external": true,
@@ -7362,7 +7394,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L59",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -7373,7 +7405,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L65",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -7384,7 +7416,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L78",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -7406,7 +7438,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".gemini/repo_rules.md",
-      "source_location": "L90",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -9123,5 +9155,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "685ea1d53ef3e61b5e910135b9bc2e099f0abef0"
+  "built_at_commit": "0307ede038ed9fb91edc96c15bba4d937341d1a7"
 }
