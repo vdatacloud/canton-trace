@@ -47,12 +47,11 @@ Only "Verified" (GPG-signed) commits are eligible for merge into `main`.
 PR must include:
 
 - description
-- what's affected (which package(s) — see the promotion checklist in
-  `.claude/skills/commons-contribution/SKILL.md` for whether a change even
-  belongs in this repo)
+- what's affected (which package(s): `cantontrace`, `traceapi`, the CLI); a
+  change must stay general to any Canton application (`CLAUDE.md`)
 - tests
-- security considerations (this module is a dependency of every consumer
-  repo's build — a bad change here breaks all of them at once)
+- security considerations (this is a public library: a bad change reaches
+  every consumer at once)
 
 ------------------------------------------------------------------------
 

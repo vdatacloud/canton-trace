@@ -113,7 +113,7 @@ gh pr create \
 <!-- One paragraph: what changed and why -->
 
 ## What's Affected
-<!-- Which package(s)? Does this belong here at all -- see .claude/skills/commons-contribution/SKILL.md's promotion checklist -->
+<!-- Which package(s): cantontrace, traceapi, cmd/canton-trace? Is it still general to any Canton application (CLAUDE.md)? -->
 
 ## Changes Made
 <!-- Bullet list of specific files and what changed -->
@@ -212,5 +212,5 @@ git fetch origin && git rebase origin/main
 
 - `.github/workflows/ci.yml` — CI pipeline definition
 - `.gemini/repo_rules.md` — Repository guardrails (canonical policy, incl. branch protection strategy)
-- `.claude/skills/commons-contribution/SKILL.md` — what belongs in this repo vs. a consumer repo
+- `CLAUDE.md` — what belongs in this library (general to any Canton application)
 - `RELEASING.md` — manual semantic-release workflow for tagging real versions
