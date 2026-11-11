@@ -1,0 +1,194 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1794423128.2543244,
+    "seen": 1794423139.8809516,
+    "ast_hash": "8854cb29aba20bebe051dfff1b0b58a0",
+    "semantic_hash": ""
+  },
+  "build.go": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.8809552,
+    "ast_hash": "3354cd9593e934d1665d72a15f161d6d",
+    "semantic_hash": ""
+  },
+  "build_test.go": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.8809571,
+    "ast_hash": "92f96368dbe05561add6357487d94db6",
+    "semantic_hash": ""
+  },
+  "cmd/canton-trace/main.go": {
+    "mtime": 1794423128.2565613,
+    "seen": 1794423139.8809593,
+    "ast_hash": "cac1b46b93b0d082bcf5fe05bd85feb0",
+    "semantic_hash": ""
+  },
+  "explain.go": {
+    "mtime": 1794423128.2576046,
+    "seen": 1794423139.8809605,
+    "ast_hash": "d0e464c81a0e4e8f958d350de47af15f",
+    "semantic_hash": ""
+  },
+  "go.mod": {
+    "mtime": 1794423128.2576046,
+    "seen": 1794423139.880962,
+    "ast_hash": "01bf0eec43493482974fb9dfae4924e1",
+    "semantic_hash": ""
+  },
+  "grpc.go": {
+    "mtime": 1794423128.2576046,
+    "seen": 1794423139.8809633,
+    "ast_hash": "e0a24fd24a88185011262e2ca783a7a6",
+    "semantic_hash": ""
+  },
+  "grpc_test.go": {
+    "mtime": 1794423128.2576046,
+    "seen": 1794423139.880974,
+    "ast_hash": "8d30e537e632a168c2795d51f1963bae",
+    "semantic_hash": ""
+  },
+  "jsonapi.go": {
+    "mtime": 1794423128.2576046,
+    "seen": 1794423139.8809762,
+    "ast_hash": "79efc25cddacff84acdf3b33e2e2d2c3",
+    "semantic_hash": ""
+  },
+  "jsonapi_test.go": {
+    "mtime": 1794423128.2586045,
+    "seen": 1794423139.8809774,
+    "ast_hash": "5ab0aed65d230665a7e16d65db4c2b87",
+    "semantic_hash": ""
+  },
+  "render.go": {
+    "mtime": 1794423128.2586045,
+    "seen": 1794423139.8809786,
+    "ast_hash": "eff3c0406c8cc454414a79242447f3f8",
+    "semantic_hash": ""
+  },
+  "scripts/install-git-hooks.sh": {
+    "mtime": 1794423128.2586045,
+    "seen": 1794423139.88098,
+    "ast_hash": "afe1a07070220130fd707911a92e4648",
+    "semantic_hash": ""
+  },
+  "scripts/next-version.sh": {
+    "mtime": 1794423128.2593699,
+    "seen": 1794423139.880981,
+    "ast_hash": "48b9dd57a7a9a4ef2198fed1df083f04",
+    "semantic_hash": ""
+  },
+  "scripts/test-next-version.sh": {
+    "mtime": 1794423128.2593699,
+    "seen": 1794423139.8809817,
+    "ast_hash": "2df16b575fedf49e2e6e043b37e9517c",
+    "semantic_hash": ""
+  },
+  "trace.go": {
+    "mtime": 1794423128.2593699,
+    "seen": 1794423139.8809829,
+    "ast_hash": "0678c6a86ae7ac4bdbd5eaead2a4f3f6",
+    "semantic_hash": ""
+  },
+  "traceapi/handler.go": {
+    "mtime": 1794423128.2593699,
+    "seen": 1794423139.8809836,
+    "ast_hash": "def9cbb18e5d0e68fb7b8c739f89d70e",
+    "semantic_hash": ""
+  },
+  "traceapi/handler_test.go": {
+    "mtime": 1794423128.2596877,
+    "seen": 1794423139.8809845,
+    "ast_hash": "fafcd57048066b930749e3a2f3fe649f",
+    "semantic_hash": ""
+  },
+  "value.go": {
+    "mtime": 1794423128.2596877,
+    "seen": 1794423139.8809855,
+    "ast_hash": "c5af21b178dec3d315544a99909006df",
+    "semantic_hash": ""
+  },
+  "value_test.go": {
+    "mtime": 1794423128.2596877,
+    "seen": 1794423139.8809865,
+    "ast_hash": "b6000990d0d5c06a2016d8955f4be8a0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/github-ci/SKILL.md": {
+    "mtime": 1794423128.2537835,
+    "seen": 1794423139.8809874,
+    "ast_hash": "648d64c56cbd1cc1d2a0b13dceda7471",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1794423128.2537835,
+    "seen": 1794423139.8809884,
+    "ast_hash": "83d4867fd85c5ddb8048702895226e68",
+    "semantic_hash": ""
+  },
+  ".gemini/repo_rules.md": {
+    "mtime": 1794423128.2548609,
+    "seen": 1794423139.880989,
+    "ast_hash": "ce17d2ea67586b777efd8506263f98a2",
+    "semantic_hash": ""
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1794423128.2556813,
+    "seen": 1794423139.8809907,
+    "ast_hash": "13a1f96a02608b6850f888a3d12f05fe",
+    "semantic_hash": ""
+  },
+  ".github/workflows/release.yml": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.8809915,
+    "ast_hash": "8e0f9f61823374b58547e3bb74575005",
+    "semantic_hash": ""
+  },
+  ".github/workflows/update-graph.yml": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.8809924,
+    "ast_hash": "4d41d810fd044d29ff236a58a7b7a197",
+    "semantic_hash": ""
+  },
+  ".github/workflows/vulnerabilities.yml": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.8809934,
+    "ast_hash": "af73ec372380e0259cae9077193b0452",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.880994,
+    "ast_hash": "d402f72b1577b99c0543cbf8311a26e7",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.880995,
+    "ast_hash": "597cfc87bf100239344a27ac38250cc4",
+    "semantic_hash": ""
+  },
+  "RELEASING.md": {
+    "mtime": 1794423128.2557664,
+    "seen": 1794423139.8809958,
+    "ast_hash": "c8f632da51a4e0b8a6b3dab6e39cf81e",
+    "semantic_hash": ""
+  },
+  "docs/images/complex-trace-with-raw.gif": {
+    "mtime": 1794423128.2566953,
+    "seen": 1794423139.880997,
+    "ast_hash": "961b858d9ef31c8331a088933697eb2c",
+    "semantic_hash": ""
+  },
+  "docs/images/complex-trace.gif": {
+    "mtime": 1794423128.257556,
+    "seen": 1794423139.880998,
+    "ast_hash": "4d0a1b49179d8783a38847f8d1b60ad3",
+    "semantic_hash": ""
+  },
+  "docs/images/simple-trace-with-raw.gif": {
+    "mtime": 1794423128.2576046,
+    "seen": 1794423139.8809988,
+    "ast_hash": "324c1b29f1dbd8ee04d15e7bdb8843ec",
+    "semantic_hash": ""
+  }
+}
