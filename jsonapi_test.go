@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"testing"
 )
 
@@ -18,8 +19,8 @@ const sampleJSONTx = `{"updateId":"1220aa","commandId":"cmd-1","workflowId":"","
     "choiceArgument":{},"actingParties":["alice::1"],"consuming":true,"witnessParties":["alice::1"],
     "lastDescendantNodeId":2,"exerciseResult":"00h","packageName":"demo","implementedInterfaces":[]}},
   {"ExercisedEvent":{"offset":42,"nodeId":1,"contractId":"00f","templateId":"pkg:Demo.Escrow:Escrow","interfaceId":"api:Token:Factory",
-    "choice":"Transfer","choiceArgument":{},"actingParties":["alice::1"],"consuming":false,"witnessParties":["alice::1"],
-    "lastDescendantNodeId":2,"exerciseResult":{},"packageName":"demo"}},
+    "choice":"Transfer","actingParties":["alice::1"],"consuming":false,"witnessParties":["alice::1"],
+    "lastDescendantNodeId":2,"packageName":"demo"}},
   {"CreatedEvent":{"offset":42,"nodeId":2,"contractId":"00h","templateId":"pkg:Demo.Escrow:Escrow",
     "createArgument":{"owner":"bob::1"},"signatories":["bank::1"],"observers":["bob::1"],"witnessParties":["bob::1"],
     "packageName":"demo"}},
@@ -33,6 +34,16 @@ func TestParseJSONTransaction_MatchesTheGRPCAdapter(t *testing.T) {
 	}
 	if shape(fromJSON.Roots) != shape(FromTransaction(sampleTx()).Roots) {
 		t.Fatalf("shapes differ: %s", shape(fromJSON.Roots))
+	}
+	// Field for field, not only shape: a node without an argument or result
+	// carries none on either transport.
+	a, _ := json.Marshal(fromJSON.Roots)
+	b, _ := json.Marshal(FromTransaction(sampleTx()).Roots)
+	var ja, jb any
+	_ = json.Unmarshal(a, &ja)
+	_ = json.Unmarshal(b, &jb)
+	if !reflect.DeepEqual(stripWitnesses(ja), stripWitnesses(jb)) {
+		t.Fatalf("transports differ:\njson %s\ngrpc %s", a, b)
 	}
 	h := fromJSON.Roots[0].Children[0].Children[0]
 	if string(h.CreateArgument) != `{"owner":"bob::1"}` || fromJSON.RecordTime.Nanosecond() != 5e8 {
@@ -105,4 +116,28 @@ func TestExplain_JSONWithoutABody(t *testing.T) {
 	if x == nil || x.HTTPStatus != 503 || x.Message != "Service Unavailable" {
 		t.Fatalf("explained = %+v", x)
 	}
+}
+
+// stripWitnesses drops the fields the two fixtures were written to differ
+// in (witnesses, package names, acting parties), keeping the rest.
+func stripWitnesses(v any) any {
+	switch x := v.(type) {
+	case map[string]any:
+		out := map[string]any{}
+		for k, val := range x {
+			switch k {
+			case "witnesses", "packageName", "actingParties":
+				continue
+			}
+			out[k] = stripWitnesses(val)
+		}
+		return out
+	case []any:
+		out := make([]any, len(x))
+		for i, e := range x {
+			out[i] = stripWitnesses(e)
+		}
+		return out
+	}
+	return v
 }

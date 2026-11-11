@@ -2,6 +2,7 @@ package cantontrace
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"strconv"
@@ -60,7 +61,7 @@ func nodeFromEvent(e *v2.Event) *Node {
 			TemplateID: IdentifierString(x.GetTemplateId()), PackageName: x.GetPackageName(),
 			Choice: x.GetChoice(), InterfaceID: IdentifierString(x.GetInterfaceId()), Consuming: x.GetConsuming(),
 			ActingParties: x.GetActingParties(), Witnesses: x.GetWitnessParties(),
-			ChoiceArgument: ValueJSON(x.GetChoiceArgument()), ExerciseResult: ValueJSON(x.GetExerciseResult()),
+			ChoiceArgument: optionalValue(x.GetChoiceArgument()), ExerciseResult: optionalValue(x.GetExerciseResult()),
 			LastDescendantNodeID: x.GetLastDescendantNodeId(),
 		}
 	case *v2.Event_Archived:
@@ -72,6 +73,16 @@ func nodeFromEvent(e *v2.Event) *Node {
 		}
 	}
 	return nil
+}
+
+// optionalValue is a node's argument or result: absent when the ledger sent
+// none, as the JSON transport leaves it out, so both transports give the
+// same trace.
+func optionalValue(v *v2.Value) json.RawMessage {
+	if v == nil {
+		return nil
+	}
+	return ValueJSON(v)
 }
 
 func ts(t *timestamppb.Timestamp) *time.Time {
@@ -117,13 +128,13 @@ func FromPrepared(p *interactive.PreparedTransaction) (*Trace, error) {
 			c := k.Create
 			n.Kind, n.ContractID, n.TemplateID, n.PackageName = KindCreate, c.GetContractId(), IdentifierString(c.GetTemplateId()), c.GetPackageName()
 			n.Signatories, n.Observers = c.GetSignatories(), minus(c.GetStakeholders(), c.GetSignatories())
-			n.CreateArgument = ValueJSON(c.GetArgument())
+			n.CreateArgument = optionalValue(c.GetArgument())
 		case *txv1.Node_Exercise:
 			x := k.Exercise
 			n.Kind, n.ContractID, n.TemplateID, n.PackageName = KindExercise, x.GetContractId(), IdentifierString(x.GetTemplateId()), x.GetPackageName()
 			n.Choice, n.InterfaceID, n.Consuming = x.GetChoiceId(), IdentifierString(x.GetInterfaceId()), x.GetConsuming()
 			n.ActingParties, n.Signatories = x.GetActingParties(), x.GetSignatories()
-			n.ChoiceArgument, n.ExerciseResult = ValueJSON(x.GetChosenValue()), ValueJSON(x.GetExerciseResult())
+			n.ChoiceArgument, n.ExerciseResult = optionalValue(x.GetChosenValue()), optionalValue(x.GetExerciseResult())
 			children = x.GetChildren()
 		case *txv1.Node_Fetch:
 			f := k.Fetch
