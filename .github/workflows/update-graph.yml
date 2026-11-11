@@ -1,0 +1,60 @@
+name: Update Graphify Memory Map
+
+# Runs after Release finishes (any conclusion), not on the push itself: both
+# workflows push to this repo on a merge to main, and concurrent pushes can be
+# rejected by GitHub ("remote rejected ... Internal Server Error").
+# Chaining keeps the graphify commit strictly after
+# the release tag. Release runs on every push to main (except [skip ci]), so
+# this still runs once per merge.
+on:
+  workflow_run:
+    workflows: [Release]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-graph
+  cancel-in-progress: false
+
+jobs:
+  build-graph:
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-graphifyy-0.9.79
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Graphify
+        run: |
+          python -m pip install --upgrade pip
+          pip install graphifyy==0.9.79  # pinned: bump deliberately, with a local upgrade to match
+
+      - name: Generate Codebase Graph
+        run: |
+          echo "🤖 Building structural memory map..."
+          graphify update .
+
+      - name: Commit and Push Updated Graph
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: automated graphify memory map update [skip ci]"
+          file_pattern: 'graphify-out/*'
+          branch: main

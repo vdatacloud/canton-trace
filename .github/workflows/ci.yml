@@ -9,6 +9,31 @@ on:
       - main
 
 jobs:
+  # graphify-out/ is regenerated and committed on main by update-graph.yml
+  # after merge; a PR that also changes it conflicts with that bot's commits.
+  graphify-out:
+    name: graphify-out not modified
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      # HEAD is the PR's merge commit, built on the current main; its first
+      # parent is that main. Comparing with the event's base.sha instead races
+      # the graph bot: a graphify commit landing on main after the event would
+      # show up as this PR's change.
+      - name: Reject graphify-out changes
+        run: |
+          changed="$(git diff --name-only HEAD^1 HEAD -- graphify-out/ | head -20)"
+          if [ -n "$changed" ]; then
+            echo "::error::This PR modifies graphify-out/, which is regenerated on main after merge. Drop those changes (git checkout origin/main -- graphify-out)."
+            echo "$changed"
+            exit 1
+          fi
+
   release-script:
     name: Release script tests
     runs-on: ubuntu-26.04
